@@ -1,10 +1,11 @@
 import streamlit as st
 import requests
 import json
+import os
 
 # === CONFIG ===
 st.set_page_config(page_title="🧠 Medical RAG Chatbot", layout="wide")
-API_URL = "http://127.0.0.1:8000/query"
+API_URL = os.getenv("API_URL", "http://127.0.0.1:8000/query")
 
 # === STYLES ===
 st.markdown("""

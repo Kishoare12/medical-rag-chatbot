@@ -1,11 +1,21 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 import chromadb
 from sentence_transformers import SentenceTransformer
 import numpy as np
 import logging
 
 app = FastAPI()
+
+# Add CORS middleware for deployment
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins (restrict this in production)
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # configure basic logging for easier debugging
 logging.basicConfig(level=logging.INFO)
