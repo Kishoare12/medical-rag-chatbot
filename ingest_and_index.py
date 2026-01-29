@@ -8,9 +8,10 @@ from sentence_transformers import SentenceTransformer
 
 
 # === CONFIGURATION ===
-input_dir = r"C:\\Users\\kisho\\OneDrive\\Desktop\\Dataset_chunks"  # Path to your chunked files
-persist_dir = "./chroma_db"                                    # Where Chroma DB will be stored
-collection_name = "medical_docs"                               # Your collection name
+# Use environment variable or default path for development
+input_dir = os.getenv("DATA_DIR", r"C:\\Users\\kisho\\OneDrive\\Desktop\\Dataset_chunks")
+persist_dir = os.getenv("CHROMA_DB_DIR", "./chroma_db")
+collection_name = "medical_docs"
 
 
 # === LOAD EMBEDDING MODEL ===
